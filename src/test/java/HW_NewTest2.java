@@ -73,9 +73,6 @@ public class HW_NewTest2{
         WebElement element1 = driver.findElement(By.cssSelector("[href*='/recently']"));
         System.out.println(element1.getText());
 
-        //на сайте "https://demowebshop.tricentis.com/" текст в тэгах href пишется слитно. Не возможно сделать
-        // проверку через разделения на начало = середину = конец текста
-
         //start -> ^ - nachalo stroki
         WebElement element2 = driver.findElement(By.cssSelector("[href*='viewed']"));
         System.out.println(element2.getText());
