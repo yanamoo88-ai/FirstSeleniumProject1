@@ -61,4 +61,25 @@ public class FindElementInTable {
         driver.findElement(By.cssSelector("[type='submit']"));
         driver.findElement(By.cssSelector(".title-container span.title")); // class + <space> + tag +
     }
+    @Test
+    public void findXpathInTable() {
+        List<WebElement> rows = driver.findElements(By.xpath("//tr"));
+        System.out.println(rows.size());
+        System.out.println("***********************************");
+        // get row 2
+        WebElement germany = driver.findElement(By.xpath("//*[@id='customers']//tr[2]"));
+        System.out.println(germany.getText());
+        System.out.println("******************************************");
+
+        // get row 2 and will find 2 element
+        WebElement maria = driver.findElement(By.xpath("//*[@id='customers']//tr[2]//td[2]"));
+        System.out.println(maria.getText());
+        System.out.println("******************************************");
+
+        //find last child in row
+        //get row 2, last element
+        WebElement last = driver.findElement(By.xpath("//*[@id='customers']//tr[2]//td[last()]"));
+        System.out.println(last.getText());
+        System.out.println("*******************************************");
+    }
 }

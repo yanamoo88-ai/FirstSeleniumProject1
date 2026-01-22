@@ -74,11 +74,13 @@ public class FindElementTest {
         WebElement linkText = driver.findElement(By.linkText("Let the car work"));
         System.out.println(linkText.getText());
     }
+
     @Test
     public void findElementByPartialLinkText() {
         WebElement partialLink = driver.findElement(By.partialLinkText("work"));
         System.out.println(partialLink.getText());
     }
+
     @Test
     public void findElementByCssSelector() {
         // driver.findElement(By.tagName("h1"));
@@ -122,4 +124,66 @@ public class FindElementTest {
         System.out.println(feedback.getText());
 
     }
+
+    @Test
+    public void findElementByXpath() {
+        //                  //some_tag or *[@attribute='value']
+        //                  // tag[2]
+        //                  //tag[@attr='value1' and/or/not @attr2 = 'value2']
+        //                  metodhs -> text(); contains()
+
+        //driver.findElement(By.cssSelector("h1"));
+        driver.findElement(By.xpath("//h1"));
+
+        // driver.findElement(By.cssSelector("#city"));
+        driver.findElement(By.xpath("//input[@id='city']"));
+
+        //driver.findElement(By.cssSelector(".telephone"));
+        driver.findElement(By.xpath("//a[@class='telephone']"));
+
+        //driver.findElement(By.cssSelector("[href='/search']"));
+        driver.findElement(By.xpath("//a[@href='/search']"));
+
+
+        //driver.findElement(By.cssSelector("[for='city']"));
+        driver.findElement(By.xpath("//label[@for='city']"));
+
+
+                        //contains ->*
+        //driver.findElement(By.cssSelector("[href*='car']"));
+        driver.findElement(By.xpath("//a[contains(@href,'car')]"));
+
+        //start -> ^
+        //driver.findElement(By.cssSelector("[href^='/let']"));
+        driver.findElement(By.xpath("//a[starts-with(@href,'/let')]"));
+
+        // text
+        WebElement element = driver.findElement(By.xpath("//*[contains(text(),'This car exceeded my expectations')]"));
+        System.out.println(element.getText());
+
+        driver.findElement(By.xpath("//span[text()=' Latest feedback from our customers ']"));
+        driver.findElement(By.xpath("//span[.=' Latest feedback from our customers ']"));
+
+        // driver.findElement(By.cssSelector("a.navigation-link[href='/search']")); // tag + class + pare
+        driver.findElement(By.xpath("//a[@class='navigation-link' and @href='/search']"));
+        // driver.findElement(By.cssSelector("div.social-networks")); // tag + class
+        driver.findElement(By.xpath("//div[@class='social-networks']"));
+
+
+
+
+        // step/s below
+
+        //  cssSelector -> div>a        xpath -> div/a  - one step
+        //  cssSelector -> div a        xpath -> div//a - one or more steps
+
+        //driver.findElement(By.cssSelector(".logo>img")); // > one step below (vniz)
+        driver.findElement(By.xpath("//a[@class='logo']/img"));
+
+        //driver.findElement(By.cssSelector(".feedback .feedback-date")); // <space> one or more steps below
+        driver.findElement(By.xpath("//div[@class='feedback']//*[@class='feedback-date']"));
+
+
+    }
+
 }
