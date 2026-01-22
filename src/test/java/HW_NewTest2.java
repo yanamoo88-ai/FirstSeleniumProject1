@@ -77,12 +77,12 @@ public class HW_NewTest2{
         // проверку через разделения на начало = середину = конец текста
 
         //start -> ^ - nachalo stroki
-//        WebElement element2 = driver.findElement(By.cssSelector("[href^='/viewed']"));
-//        System.out.println(element2.getText());
+        WebElement element2 = driver.findElement(By.cssSelector("[href*='viewed']"));
+        System.out.println(element2.getText());
 
         //end to -> $ - konec stroky
-//        WebElement element3 = driver.findElement(By.cssSelector("[href$='/products']"));
-//        System.out.println(element3.getText());
+        WebElement element3 = driver.findElement(By.cssSelector("[href$='products']"));
+        System.out.println(element3.getText());
 
         // composite cssSelector
         driver.findElement(By.cssSelector("div.block-manufacturer-navigation"));
@@ -95,7 +95,7 @@ public class HW_NewTest2{
         driver.findElement(By.cssSelector(".header-selectors-wrapper .language-selector")); // <space> one or more steps below
 
         //<tag> or <id> or <class>:nth-child(number)
-        WebElement element2 = driver.findElement(By.cssSelector(".inactive:nth-child(4)"));
-        System.out.println(element2.getText());
+        WebElement element6 = driver.findElement(By.cssSelector(".inactive:nth-child(4)"));
+        System.out.println(element6.getText());
     }
 }

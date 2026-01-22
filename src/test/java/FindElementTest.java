@@ -183,6 +183,19 @@ public class FindElementTest {
         //driver.findElement(By.cssSelector(".feedback .feedback-date")); // <space> one or more steps below
         driver.findElement(By.xpath("//div[@class='feedback']//*[@class='feedback-date']"));
 
+    }
+    @Test
+    public void findElementByXpathFamily () {
+        //parent
+        driver.findElement(By.xpath("//h1/parent::*"));
+        driver.findElement(By.xpath("//h1/parent::div"));
+        driver.findElement(By.xpath("//h1/.."));
+
+        //ancestor
+        driver.findElement(By.xpath("/h1/ancestor::*"));//html
+        driver.findElement(By.xpath("/h1/ancestor::div"));//2 steps above
+        driver.findElement(By.xpath("/h1/ancestor::div[2]"));// 2 steps above
+
 
     }
 
